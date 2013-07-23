@@ -1,0 +1,78 @@
+/*
+ *  Tab.css Brandon Holtsclaw
+ */
+#comment-tabs ul.inline li
+{
+  padding:0;
+  margin: 0;
+  margin-left:0.5em;
+  float: left;
+  background:#ddd;
+  border-right:1px solid #ddd;
+  border-left:1px solid #ddd;
+  border-top:1px solid #ddd;
+}
+
+#comment-tabs ul.inline li:first-child
+{
+  border-right:1px solid #ddd;
+  border-left:1px solid #ddd;
+  border-top:1px solid #ddd;
+}
+
+#comment-tabs ul.inline li a
+{
+  display:block;
+  color:#aaa;
+  text-decoration:none;
+  font-weight:normal;
+  margin:0;
+  padding:0.5em 1.2em;
+}
+
+#comment-tabs ul.inline li.active
+{
+  background: #fff;
+}
+
+#comment-tabs ul.inline li:hover
+{
+  background: #fff;
+}
+
+#comment-tabs ul.inline li.active a
+{
+  color: #333;
+}
+
+#comment-tabs ul.inline li a:hover
+{
+  color: #333;
+}
+
+
+#comment-tabs ul.inline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 0.5em;
+}
+
+#comment-tabs 
+{
+  margin-bottom: 1em; 
+}
+
+#comment-tabs .block 
+{
+  border: 1px solid #ddd;
+  padding: 3px;
+  margin: 0;
+  display: none; 
+}
+
+#comment-tabs .block.active 
+{
+  display: block; 
+}
+
