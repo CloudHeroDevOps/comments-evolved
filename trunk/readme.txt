@@ -13,9 +13,11 @@ Comments Evolved ( formerly Google+ Comments for WordPress ) makes the comment s
 == Description ==
 Comments Evolved ( formerly Google+ Comments for WordPress ) makes the comment section tabbed seamlessly adding tabs for G+ Comments, Facebook, Disqus, WordPress Comments, and Trackbacks
 
-If a user is required to create an account with your site before they can comment, you might as well ask them to fetch you a soda from the mars. It’s probably not going to happen. However, if you can give them the option to comment with an account they’ve already set up, then you will be much more likely to get some interaction.
+If a user is required to create an account with your site before they can comment, you might as well ask them to fetch you a soda from mars. It’s probably not going to happen. However, if you can give them the option to comment with an account they’ve already set up, then you will be much more likely to get some interaction.
 
-**Live Demo @** [www.cloudhero.net](http://www.cloudhero.net/)
+**Source Code @ Github: ** [comments-evolved@github](https://github.com/bholtsclaw/comments-evolved)
+
+**Demo: ** [www.cloudhero.net](http://www.cloudhero.net/)
 
 Using this plugin or JavaScript to load comments **does _NOT_** have a negative effect on your SEO, Google now indexes content ( and specifically comments ) loaded via JavaScript. See [this link](http://blog.optimum7.com/safon/google/google-now-indexing-fb-comments.html) and also [this one](http://webmasters.stackexchange.com/questions/27042/effect-on-seo-of-lazy-scrolling-on-html-comments) for more details.
 
