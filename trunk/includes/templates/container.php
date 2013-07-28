@@ -58,7 +58,7 @@ jQuery(document).ready(function($) {
           echo "<img id='" . $tab . "-icon' src='" . COMMENTS_EVOLVED_URL . "/assets/images/icons/" . $options['icon_theme'] . "/" . $tab . ".png'>";
         }
         echo "<span id='" . $tab . "-label'>" . $options[${tab} . '_label'] . "</span>";
-        //echo "<span id='" . $tab . "-count'> (${$tab . '_count'})</span>";
+        echo "<span id='" . $tab . "-count'> (${$tab . '_count'})</span>";
         echo "</a></li>" . PHP_EOL;
         $active = '';
       }

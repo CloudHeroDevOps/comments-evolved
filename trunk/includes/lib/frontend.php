@@ -80,9 +80,10 @@ function comments_evolved_get_gplus_count($url = "") {
   $link = 'https://apis.google.com/_/widget/render/commentcount?bsv&href=' . urlencode($url);
   $link_body = get_transient('ce_'.$link);
   if (false === $link_body) {
-    $link_body = str_get_html(wp_remote_retrieve_body(wp_remote_get($link)));
+    $link_body = wp_remote_retrieve_body(wp_remote_get($link));
     set_transient('ce_'.$link, $link_body, 60);
   }
+  $link_body = str_get_html($link_body);
   $count_raw = $link_body->find('#widget_bounds > span', 0);
   $count_arr = split(" ",$count_raw->plaintext);
   return trim($count_arr[0]);
