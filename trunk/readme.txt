@@ -6,7 +6,7 @@ License: GPLv3+
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Requires at least: 3.5
 Tested up to: 3.6
-Stable Tag: 1.5.6
+Stable Tag: 1.5.7
 
 Comments Evolved ( formerly Google+ Comments for WordPress ) makes the comment section tabbed seamlessly adding tabs for Comments & More
 
@@ -104,6 +104,9 @@ Yes, just disable WP comments like you normally would and then leave the Show Wo
 I can be reached many different ways all listed on http://en.gravatar.com/imbrandon , including Email, Phone, or Other Social Networks.
 
 == Change Log ==
+= 1.5.7 =
+* added transient caching ( 60 seconds ) to the comment count fetching
+
 = 1.5.6 =
 * reverted comment counting code for now until preformace issues can be resolved in a future update
 
