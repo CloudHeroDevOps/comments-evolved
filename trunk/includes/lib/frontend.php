@@ -19,8 +19,6 @@ function comments_evolved_get_total_count() {
   $total_count = 0;
 
   $wordpress_count = comments_evolved_get_wordpress_count();
-  //$wordpress_count = get_comments_number();
-
   $gplus_count = comments_evolved_get_gplus_count();
   $trackback_count = comments_evolved_get_trackback_count();
   $facebook_count = comments_evolved_get_facebook_count();
@@ -29,7 +27,7 @@ function comments_evolved_get_total_count() {
   $total_count = $total_count + $wordpress_count + $gplus_count + $trackback_count + $facebook_count + $disqus_count;
   return $total_count;
 }
-//add_filter('get_comments_number', 'comments_evolved_get_total_count', 4269);
+add_filter('get_comments_number', 'comments_evolved_get_total_count', 4269);
 
 function comments_evolved_get_wordpress_count() {
   global $post, $comments, $wp_query, $comments_by_type, $id;
@@ -46,9 +44,16 @@ function comments_evolved_get_trackback_count() {
 function comments_evolved_get_facebook_count($url = "") {
   if(empty($url)){ $url = get_permalink(); }
   $link = 'https://graph.facebook.com/?ids=' . urlencode($url);
-  $link_body = wp_remote_retrieve_body(wp_remote_get($link));
+  $link_body = get_transient('ce_'.$link);
+  if (false === $link_body) {
+    $link_body = wp_remote_retrieve_body(wp_remote_get($link));
+    set_transient('ce_'.$link, $link_body, 60);
+  }
   $json = json_decode($link_body);
-  return $json->$url->comments;
+  if(!empty($json)){
+    return $json->$url->comments;
+  }
+  return 0;
 }
 
 function comments_evolved_get_disqus_count($url = "") {
@@ -56,7 +61,11 @@ function comments_evolved_get_disqus_count($url = "") {
   $options = get_option("comments-evolved");
   if(!empty($options["disqus_shortname"])){
     $link = 'http://disqus.com/api/3.0/threads/details.json?api_key=qaoZg7DHagkn8xUf9ZqYRacHZI3CuBmGpu5InMmtXgtRzCnq6iGwtn7Fbwq1uysH&forum=' . $options["disqus_shortname"] . '&thread:link=' . urlencode($url);
-    $link_body = wp_remote_retrieve_body(wp_remote_get($link));
+    $link_body = get_transient('ce_'.$link);
+    if (false === $link_body) {
+      $link_body = wp_remote_retrieve_body(wp_remote_get($link));
+      set_transient('ce_'.$link, $link_body, 60);
+    }
     $json = json_decode($link_body);
     if(!empty($json)){
       return $json->response->posts;
@@ -69,7 +78,11 @@ function comments_evolved_get_gplus_count($url = "") {
   include_once COMMENTS_EVOLVED_LIB . '/simple_html_dom.php';
   if(empty($url)){ $url = get_permalink(); }
   $link = 'https://apis.google.com/_/widget/render/commentcount?bsv&href=' . urlencode($url);
-  $link_body = str_get_html(wp_remote_retrieve_body(wp_remote_get($link)));
+  $link_body = get_transient('ce_'.$link);
+  if (false === $link_body) {
+    $link_body = str_get_html(wp_remote_retrieve_body(wp_remote_get($link)));
+    set_transient('ce_'.$link, $link_body, 60);
+  }
   $count_raw = $link_body->find('#widget_bounds > span', 0);
   $count_arr = split(" ",$count_raw->plaintext);
   return trim($count_arr[0]);

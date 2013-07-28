@@ -43,13 +43,11 @@ jQuery(document).ready(function($) {
         $options['icon_theme'] = 'default';
       }
       $active = ' class="active"';
-      /*
       $wordpress_count = comments_evolved_get_wordpress_count();
       $gplus_count = comments_evolved_get_gplus_count();
       $trackback_count = comments_evolved_get_trackback_count();
       $facebook_count = comments_evolved_get_facebook_count();
       $disqus_count = comments_evolved_get_disqus_count();
-      */
       foreach ($tab_order as &$tab) {
         $tab = trim($tab);
         if(empty(${$tab . '_count'})) {
