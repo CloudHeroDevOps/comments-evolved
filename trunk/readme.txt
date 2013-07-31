@@ -6,7 +6,7 @@ License: GPLv3+
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Requires at least: 3.5
 Tested up to: 3.6
-Stable Tag: 1.5.7
+Stable Tag: 1.5.6
 
 Comments Evolved ( formerly Google+ Comments for WordPress ) makes the comment section tabbed seamlessly adding tabs for Comments & More
 
