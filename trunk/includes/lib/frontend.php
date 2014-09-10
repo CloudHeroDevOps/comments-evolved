@@ -27,7 +27,8 @@ function comments_evolved_get_total_count() {
   $total_count = $total_count + $wordpress_count + $gplus_count + $trackback_count + $facebook_count + $disqus_count;
   return $total_count;
 }
-add_filter('get_comments_number', 'comments_evolved_get_total_count', 4269);
+
+add_filter('get_comments_number', 'comments_evolved_get_total_count', 4269);  
 
 function comments_evolved_get_wordpress_count() {
   global $post, $comments, $wp_query, $comments_by_type, $id;
