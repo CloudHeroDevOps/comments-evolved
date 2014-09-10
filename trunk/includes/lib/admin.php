@@ -35,6 +35,20 @@ if(empty($options['tab_order']))
     <tr>
         <td colspan="2"><hr></td>
     </tr>
+	
+	<!-- adding a Facebook AppID -->
+    <tr>
+        <td>Facebook App ID:</td>
+        <td><input type="text" name="comments-evolved[facebook_appid]" value="<?php echo $options['facebook_appid'];?>"></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>
+            <strong>Notes:</strong> Required if you want to <a href="https://developers.facebook.com/tools/comments">moderate Facebook comments</a>
+        </td>
+    </tr>
+	<!-- end Facebook AppID -->
+
     <tr>
         <td>Disqus Shortname:</td>
         <td><input type="text" name="comments-evolved[disqus_shortname]" value="<?php echo $options['disqus_shortname'];?>"></td>
@@ -42,7 +56,7 @@ if(empty($options['tab_order']))
     <tr>
         <td>&nbsp;</td>
         <td>
-            <strong>Notes:</strong> Required if showing the Disqus Tab
+            <strong>Notes:</strong> Required if you want to display and <a href="https://disqus.com/admin/moderate/">moderate Disqus comments</a>
         </td>
     </tr>
     <tr>
@@ -103,16 +117,13 @@ if(empty($options['tab_order']))
     <?php submit_button(); ?>
 </form>
   </div>
-  <div class="pure-u-1-2">
+
+<!-- Tips and Job Leads -->
+<!-- currently disabled
+ <div class="pure-u-1-2">
   <div style="padding: 15px; margin: 5px; border: 2px solid #008fff; border-radius: 6px; max-width: 350px; background-color: #d5edff;">
     <h2>Comments Evolved for WordPress is 100% free.</h2>
-    <p>If you enjoy using this plugin consider a donation via <a href="https://www.wepay.com/donations/brandonholtsclaw">WePay</a> using the button below for any amount you see fit... <strong>thank you</strong>!</p>
-    <p style="float: left;margin-left: 20px;">
-      <a class="wepay-widget-button wepay-green" id="wepay_widget_anchor_51beee51397d5" href="https://www.wepay.com/donations/338811">Donate</a><script type="text/javascript">var WePay = WePay || {};WePay.load_widgets = WePay.load_widgets || function() { };WePay.widgets = WePay.widgets || [];WePay.widgets.push( {object_id: 338811,widget_type: "donation_campaign",anchor_id: "wepay_widget_anchor_51beee51397d5",widget_options: {donor_chooses: true,allow_cover_fee: true,enable_recurring: true,button_text: "Donate"}});if (!WePay.script) {WePay.script = document.createElement('script');WePay.script.type = 'text/javascript';WePay.script.async = true;WePay.script.src = 'https://static.wepay.com/min/js/widgets.v2.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(WePay.script, s);} else if (WePay.load_widgets) {WePay.load_widgets();}</script>
-    </p>
-    <p style="float: right;margin-right: 20px;">
-      <a href="https://www.wepay.com/donations/brandonholtsclaw/"><img src="<?php echo COMMENTS_EVOLVED_URL . '/assets/images/admin/wepay_logo.png'; ?>" border="0"></a>
-    </p>
+    <p>If you enjoy using this plugin consider a donation via <a href="https://wallet.google.com/">Google Wallet</a> using the button below for any amount you see fit. <strong>thank you</strong>!</p>
     <div style="clear: both;"></div>
   </div>
   <div style="padding: 15px; margin: 5px; border: 2px solid #008fff; border-radius: 6px; max-width: 350px; background-color: #d5edff;">
@@ -120,5 +131,7 @@ if(empty($options['tab_order']))
     <a href="https://www.linkedin.com/in/brandonholtsclaw"><img src="<?php echo COMMENTS_EVOLVED_URL . '/assets/images/admin/hire-me.png'; ?>" border="0"></a>
   </div>
   </div>
+-->
+
 </div>
 </div>

@@ -54,14 +54,20 @@ function display_comments_evolved() {
   echo do_shortcode('[comments_evolved]');
 }
 
-function insert_comments_evolved_gpauthor_in_head() {
+function insert_comments_evolved_meta() {
+  // attaching a function ('insert_meta') to a hook ('wp_head')
+  // adds meta tags (facebook id, google authorship) to head
   $options = get_option( 'comments-evolved' );
+  echo '<!-- comments-evolved plugin -->' . PHP_EOL;
   if(!empty($options['gp_author'])){
-    echo '<!-- comments-evolved plugin -->' . PHP_EOL;
     echo '<link href="https://plus.google.com/'.$options['gp_author'].'" rel="author" />' . PHP_EOL;
-    echo '<!-- //comments-evolved plugin -->' . PHP_EOL;
+    }
+  if(!empty($options['facebook_appid'])){
+    echo '<meta property="fb:app_id" content='.$options['facebook_appid'].' />' . PHP_EOL;
+    }
+  echo '<!-- //comments-evolved plugin -->' . PHP_EOL;
   }
-}
-add_action('wp_head', 'insert_comments_evolved_gpauthor_in_head',5);
+
+add_action('wp_head', 'insert_comments_evolved_meta',5);
 
 

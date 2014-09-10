@@ -1,28 +1,31 @@
 === Comments Evolved for WordPress ===
-Contributors: bholtsclaw
-Donate link: http://www.wepay.com/donations/brandonholtsclaw
+Contributors: bholtsclaw, brandoncurtis
+Donate link: http://wallet.google.com/
 Tags: comments, threaded, email, notification, spam, avatars, community, profile, widget, google, google plus, facebook, disqus, google+, +1, plus one, widget, tabs, comment tabs
 License: GPLv3+
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Requires at least: 3.5
-Tested up to: 3.6
-Stable Tag: 1.5.6
+Tested up to: 4.0
+Stable Tag: 1.5.8
 
-Comments Evolved ( formerly Google+ Comments for WordPress ) makes the comment section tabbed seamlessly adding tabs for Comments & More
+Comments Evolved ( formerly Google+ Comments for WordPress ) makes the comment section tabbed, seamlessly adding tabs for comments & more
 
 == Description ==
-Comments Evolved ( formerly Google+ Comments for WordPress ) makes the comment section tabbed seamlessly adding tabs for G+ Comments, Facebook, Disqus, WordPress Comments, and Trackbacks
+This plugin has been dormant for a while, so I decided to take a shot at cleaning it up and adding the most-requested feature: the option to link to Facebook App ID for centralized Facebook comment monitoring. I got that working and the comment counts seem to be working okay as well, so here you go!
+ -- Brandon Curtis (www.brandoncurtis.com, brandon.curtis@gmail.com)
 
-If a user is required to create an account with your site before they can comment, you might as well ask them to fetch you a soda from mars. It’s probably not going to happen. However, if you can give them the option to comment with an account they’ve already set up, then you will be much more likely to get some interaction.
+Comments Evolved ( formerly Google+ Comments for WordPress ) makes the comment section tabbed, seamlessly adding tabs for G+ Comments, Facebook, Disqus, WordPress Comments, and Trackbacks
 
-**Source Code @ Github: ** [comments-evolved@github](https://github.com/bholtsclaw/comments-evolved)
+If a user is required to create an account with your site before they can comment, you might as well ask them to fetch you a soda from Mars—it’s probably not going to happen. However, if you can give them the option to comment with an account they already have, then you will be much more likely to get some interaction.
 
-**Demo: ** [www.cloudhero.net](http://www.cloudhero.net/)
+**Source Code @ Github: ** [comments-evolved@github](https://github.com/CloudHeroDevOps/comments-evolved)
 
-Using this plugin or JavaScript to load comments **does _NOT_** have a negative effect on your SEO, Google now indexes content ( and specifically comments ) loaded via JavaScript. See [this link](http://blog.optimum7.com/safon/google/google-now-indexing-fb-comments.html) and also [this one](http://webmasters.stackexchange.com/questions/27042/effect-on-seo-of-lazy-scrolling-on-html-comments) for more details.
+**Demo: ** [www.cloudhero.net](http://www.cloudhero.net/) (defunct)
+
+Using this plugin or JavaScript to load comments **does _NOT_** have a negative effect on your SEO, Google now indexes content ( and specifically comments ) loaded via JavaScript. See [this link](http://www.labnol.org/internet/google-indexes-facebook-comments/20295/) and also [this one](http://webmasters.stackexchange.com/questions/27042/effect-on-seo-of-lazy-scrolling-on-html-comments) for more details.
 
 * You should have [Google Authorship](http://plus.google.com/authorship) already setup and in use for your site.
-* I've setup a page so if you want to [Donate](http://www.wepay.com/donations/brandonholtsclaw) to this plugins development, now you can.
+* If you want to [Donate](http://wallet.google.com/) to this plugin's development, now you can.
 
 _This plug-in is not endorsed or associated with the Google, Twitter, Disqus, Facebook, WordPress.org, Automattic, or WordPress HelpCenter._
 
@@ -47,37 +50,41 @@ _This plug-in is not endorsed or associated with the Google, Twitter, Disqus, Fa
 = Google+ Comments for WordPress doesn't work ? =
 _A.K.A. the tabs are in list form instead, or do not show up at all_
 
-Keep Calm and lets step through this, the plugin does indeed work though, It's used by thousands of websites already every day so if it doesn't work for your website that because there is some problem with how it interacts with the theme or other plugins and the info below will help you track what one it is exactly.
+Keep calm and let's step through this: the plugin does indeed work, as it's used by thousands of websites every day.  If it doesn't work for your website, that's because there is some problem with how it interacts with the theme or other plugins and the information below will help you track down the problem and solve it.
 
-The _most common cause for it not working is a **jQuery conflict** caused by a theme or a plugin_ that either does not properly instantiate jQuery causing an old version and new version to both try and load themselfs unknown to each other, or instantiates a very old version of jQuery that is not compatable with the jQuery this plugin requests to be loaded ( e.g. we tell WordPress to load the jQuery.js + jQuery-UI-Core.js + jQuery-UI-Tabs.js that are both included with WordPress 3.3+ ) ... below may be of some help.
+The _most common cause for it not working is a **jQuery conflict** caused by a theme or a plugin_:
+ • the offending plugin does not properly instantiate jQuary, causing old and new version to attempt to load simultaneously
+ • the offending plugin instantiates a very old version of jQuery that's not compatible with this plugin (FYI, we tell WordPress to load jQuery.js + jQuery-UI-Core.js + jQuery-UI-Tabs.js, all of which are included with WordPress 3.3+)
 
-_Here are things to try in order to see what the problem is._
+_Track down the problem by trying this:_
 
-1. Check jQuery version and make sure you are using the lastest included in WordPress
-  If it's an older version or not enqueued correctly it _will_ cause problems.
-  It may be in your theme or another plugin
+1.	Check jQuery version and make sure you are using the latest included in WordPress.
+	If it's an older version or not enqueued correctly it _will_ cause problems.
+	It may be in your theme or in another plugin.
 
-2. You may be lacking wp_footer() function in your footer.php of your WordPress theme.
-  Look at the default theme to see how it is implemented and add it into your theme.
+2.	You may be lacking a wp_footer() function in footer.php from your WordPress theme.
+	Look at the default theme to see how it is implemented and if needed, add it into your theme.
 
-3. Try deactivating all plugins one at a time besides Google+ Comments for WordPress and see if if it starts working
-  Make sure and to clear both WordPress and your Browsers Cache after any plugin changes to make sure you see the correct pages
-  and not a cached version of the same (broken) one. If it does work after deactivating on then there's a plugin conflict.
+3. 	Try deactivating all plugins other plugins and reactivating them one at a time;
+	when this plugin suddenly stops working, you've found the problem.
+	Make sure to clear your caches (WordPress and your browser's) after changing a plugin to verify that you're actually looking at the live page.
 
-4. If deactivating plugins doesn't work then there might be a conflict with your theme
-  To isolate you can try an different theme and see if it works.
+4.	If deactivating plugins doesn't work, then there might be a conflict with your theme.
+	To isolate, you can try a different theme and see if it works.
 
-5. Be sure to clear ALL cache's that may be in effect, both in WP like WP-SuperCache or W3TC and also
-  locally on your machine like the browser and you can even reboot your Internet router as a precaution ( and a bit of
-  overkill but hey, why not check everything ) as it could be running a squid transparent cache proxy for you
-  when running DD-WRT or similar as well and you may not have noticed / known before something like this.
+5.	Be sure to clear ALL caches that may be in effect, both in WP (like WP-SuperCache or W3TC) 
+	and also locally on your machine (your browser). Are you doing something fancy on your router, 
+	e.g. running a squid transparent cache proxy on DD-WRT? Clear that cache too by rebooting your router.
 
-6. There may be a style conflict of some sort, check the Developer console for your browser ( any of them anymore have
-  a debug console / js console , even IE7+ native and others via extensions too ) when the page is loading to check for
-  error messaged that may help narrow it down.
+6.	There may be a style conflict of some sort.  heck the Developer console for your browser ( any of them anymore have
+	a debug console / javascripts console , even IE7+ native and others via extensions too ) when the page is loading to check for
+	error messages that may help narrow it down.
 
-7. Try deleting the plugin and reinstalling - it may have not completely updated correctly.
-  You'll have to reset your settings so you might want to write them down.
+7.	Try deleting the plugin and reinstalling - it may have not completely updated correctly.
+	You'll have to reset your settings so you might want to write them down.
+
+8.	Need one-on-one help?  Make an offer.
+
 
 = Do you need any other plugins to use the other commenting systems like Disqus ? =
 No. All needed code for any of the available commenting systems is included with this plugin.
@@ -86,7 +93,7 @@ No. All needed code for any of the available commenting systems is included with
 Sure, most likely. If there is not a technical reason not to then I'd be glad to add other commenting systems. Just file a support request asking for it and we'll go from there.
 
 = Will loading Comments with Javascript hurt my SEO ? =
-No, that information is based on the way things used to be. Now not only does it not hurt your SEO it can actually help it with more +1's for your content, as well as JS comments from G+, Facebook, Twitter, and others is now fully indexed by google. Plus more engagement and thus content as well. For more info see [this link](http://blog.optimum7.com/safon/google/google-now-indexing-fb-comments.html) and also [this one](http://webmasters.stackexchange.com/questions/27042/effect-on-seo-of-lazy-scrolling-on-html-comments) for more details.
+No, that information is based on the way things used to be. Now not only does it not hurt your SEO it can actually help it with more +1's for your content, as well as JS comments from G+, Facebook, Twitter, and others is now fully indexed by google. Plus more engagement and thus content as well. For more info see [this link](http://www.labnol.org/internet/google-indexes-facebook-comments/20295/) and also [this one](http://webmasters.stackexchange.com/questions/27042/effect-on-seo-of-lazy-scrolling-on-html-comments) for more details.
 
 = Does the normal commenting stay active ? =
 Yes, both systems can be active at the same time.
@@ -95,20 +102,24 @@ Yes, both systems can be active at the same time.
 Yes, as of 1.4.0 you can.
 
 = Can I enable or disable commenting systems I'm not using ? =
-Yes, only choose to show the tabs you wish to use via the G+ Comments Options Page inside the Admin area of your WordPress install.
+Yes, only choose to show the tabs you wish to use via the plugin Options Page inside the Admin area of your WordPress install.
 
 = Can I disable WordPress Native comments so all new comments are made via Google+ but still show the historic WordPress Comments ? =
-Yes, just disable WP comments like you normally would and then leave the Show WordPress Comments option checked in the Google+ Comments Options.
+Yes, just disable WP comments like you normally would and then leave the Show WordPress Comments option checked in the plugin Options.
 
 = What if I ... =
-I can be reached many different ways all listed on http://en.gravatar.com/imbrandon , including Email, Phone, or Other Social Networks.
+Brandon: I can be reached many different ways, all listed on http://en.gravatar.com/imbrandon , including Email, Phone, or Other Social Networks.
+Brandon: find me on http://en.gravatar.com/brandonscurtis. I'm busy, so please have something to offer if you want my help.
 
 == Change Log ==
+= 1.5.8 =
+* added option to associate with a Facebook App ID for centralized Facebook comment moderation
+
 = 1.5.7 =
 * added transient caching ( 60 seconds ) to the comment count fetching
 
 = 1.5.6 =
-* reverted comment counting code for now until preformace issues can be resolved in a future update
+* reverted comment counting code for now until performance issues can be resolved in a future update
 
 = 1.5.5 =
 * udates to the disqus comment count
